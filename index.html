@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Week 37 Review — 4 Systems Shipped | Jeremy Panasuk</title>
+<title>Week 37 Review — 5 Systems Shipped | Jeremy Panasuk</title>
 <meta name="description" content="What the agent fleet shipped 2026-09-20 to 2026-09-26: SupaBird, FunTokens, The Debate Desk, Connecture. Real numbers, paper-only gates, no income claims." />
 <link rel="canonical" href="https://jpanasuk-netizen.github.io/week37-review/" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Week 37 Review — 4 Systems Shipped | Jeremy Panasuk" />
-<meta property="og:description" content="Four systems shipped in one week on a single RTX 4070. Real data, honest gates." />
+<meta property="og:title" content="Week 37 Review — 5 Systems Shipped | Jeremy Panasuk" />
+<meta property="og:description" content="Five systems shipped in one week on a single RTX 4070. Real data, honest gates." />
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -125,19 +125,19 @@
   <div class="wrap">
     <div class="kicker">2026-09-20 &rarr; 2026-09-26 &middot; Single RTX 4070</div>
     <div class="rule"></div>
-    <h1>FOUR SYSTEMS<br />SHIPPED IN<br />ONE WEEK</h1>
-    <p class="subline">A growth tool, a wallet watcher, a panel of agents that argue about stocks out loud, and the control room that runs all of it. No VC, no team, no data center.</p>
+    <h1>FIVE SYSTEMS<br />SHIPPED IN<br />ONE WEEK</h1>
+    <p class="subline">A growth tool, a wallet watcher, nine agents arguing about stocks out loud, the control room that runs it all, and a trading bot that went nowhere. No VC, no team, no data center.</p>
 
     <div class="metrics">
-      <div class="metric"><b>4</b><span>Systems shipped</span></div>
+      <div class="metric"><b>5</b><span>Systems shipped</span></div>
       <div class="metric"><b>20</b><span>Hermes seats</span></div>
       <div class="metric"><b>66</b><span>Bus events / 7 days</span></div>
-      <div class="metric"><b>0</b><span>Income claims</span></div>
+      <div class="metric"><b class="c-orange">0.0%</b><span>Kalshi hit rate, 181 samples</span></div>
     </div>
 
     <div class="tldr">
       <h2>THE HONEST VERSION</h2>
-      <p>Both trading tools are <b class="c-orange">deliberately disarmed</b>. FunTokens is WATCH-ONLY with live off and zero backtested picks. The Debate Desk is PAPER ONLY with a live cap of 0. The 100% win rate visible on the FunTokens dashboard is a single sample, not a strategy.</p>
+      <p>Every trading tool on this page is <b class="c-orange">deliberately disarmed</b>. The Kalshi 15m Desk ran 181 samples at a <b class="c-orange">0.0% hit rate</b> and lost $18.47 live &mdash; its own dashboard reports the zero, so it stays on the page. It was found armed and has been disarmed since. FunTokens is WATCH-ONLY with live off and zero backtested picks. The Debate Desk is PAPER ONLY with a live cap of 0. The 100% win rate visible on the FunTokens dashboard is a single sample, not a strategy.</p>
       <p>That is not a caveat &mdash; that is the feature. The gate opens when the backtests earn it. Every number on this page is a real measured value, and the ones we do not have are shown as <b class="c-muted">insufficient data</b> rather than invented.</p>
     </div>
   </div>
@@ -145,7 +145,7 @@
 
 <section id="systems">
   <div class="wrap">
-    <div class="kicker">01 &mdash; The four builds</div>
+    <div class="kicker">01 &mdash; The five builds</div>
     <div class="rule"></div>
     <h2>WHAT EACH ONE DOES</h2>
 
@@ -208,6 +208,21 @@
           <li>Mounts as an MCP server over both streamable HTTP and stdio</li>
         </ul>
         <span class="gate locked">Everything that should be running is running</span>
+      </div>
+
+      <div class="sys">
+        <div class="tag">Owned by FreeBuff &middot; experiment</div>
+        <h3 class="c-orange">KALSHI 15M DESK</h3>
+        <div class="port">15-minute BTC prediction market &middot; KXBTC15M &middot; :3000</div>
+        <p>A desk built to beat a 15-minute Bitcoin market. It grades itself in public &mdash; every decision, probability, edge and gate score lands on its own dashboard. The screenshots below are the real thing, running, today.</p>
+        <ul>
+          <li><b>181 samples &middot; 0.0% hit rate</b> &mdash; and the dashboard says so itself</li>
+          <li><b>Sharpe 3.08</b> on that same record &mdash; a perfect risk score on a strategy that has never been right</li>
+          <li>Live P&amp;L <b class="c-orange">&minus;$18.47</b> over 16 live trades (8W/8L) &middot; &minus;$6.21 on the $2 ledger</li>
+          <li>Trade gates &middot; JEV pipeline &middot; Quant Lab (skill vs noise) &middot; book ladder &middot; tape</li>
+          <li>Screenshots captured in <b>PAPER</b> mode, <code>armed=False</code></li>
+        </ul>
+        <span class="gate locked">Disarmed. The 0.0% stays on the page.</span>
       </div>
     </div>
   </div>
@@ -281,10 +296,11 @@
     <div class="kicker">04 &mdash; The part most posts leave out</div>
     <div class="rule orange"></div>
     <h2>WHY NOTHING IS LIVE</h2>
-    <p class="subline">Both trading tools could be switched on with one config line. Doing that would be a mistake.</p>
+    <p class="subline">Every trading tool could be switched on with one config line. Doing that would be a mistake.</p>
     <table class="cmp-table">
       <thead><tr><th>System</th><th>Mode</th><th>Live state</th><th>Backtested picks</th></tr></thead>
       <tbody>
+        <tr><td><b>Kalshi 15m Desk</b></td><td>PAPER &middot; <code>armed=False</code></td><td><span class="c-orange">disarmed</span> &middot; was armed, found and disarmed</td><td><b class="c-orange">0.0%</b> hit rate over 181 samples &middot; <b class="c-orange">&minus;$18.47</b> live P&amp;L</td></tr>
         <tr><td><b>FunTokens</b></td><td>WATCH-ONLY &middot; PAPER</td><td><span class="c-orange">off</span> &middot; no implementation</td><td><b class="c-orange">0</b> &mdash; stats read <i>insufficient data</i></td></tr>
         <tr><td><b>Debate Desk</b></td><td>PAPER ONLY</td><td><span class="c-orange">live cap = 0</span></td><td>NVDA verdict Hold (1 run)</td></tr>
         <tr><td><b>Connecture</b></td><td>Local services</td><td><span class="c-green">all healthy</span></td><td>n/a &mdash; not a trading system</td></tr>
@@ -299,6 +315,15 @@
     <div class="kicker">05 &mdash; Everything captured today</div>
     <div class="rule gold"></div>
     <h2>THE SCREENS</h2>
+
+    <h3 class="c-orange" style="margin-top:26px;">Kalshi 15m Desk &mdash; 181 samples, 0.0% hit rate</h3>
+    <p class="subline" style="margin:0 0 16px;">Captured live on the running desk, in <b>PAPER</b> mode with <code>armed=False</code>. The 0.0% and the Sharpe 3.08 are both read straight off the Quant Lab panel.</p>
+    <div class="grid-2">
+      <div class="shot"><img src="img/30-kalshi-desk-charts.png" alt="Kalshi 15m Desk - charts tab" loading="lazy" /><div class="cap">Charts &mdash; over/under equity, price and edge</div></div>
+      <div class="shot"><img src="img/31-kalshi-desk-pipeline.png" alt="Kalshi 15m Desk - JEV pipeline and Quant Lab" loading="lazy" /><div class="cap">Pipeline &mdash; JEV stages, BTCC board, Quant Lab</div></div>
+      <div class="shot"><img src="img/32-kalshi-desk-tape.png" alt="Kalshi 15m Desk - tape and risk checklist" loading="lazy" /><div class="cap">Tape / Risk &mdash; risk checklist and micro</div></div>
+      <div class="shot"><img src="img/33-kalshi-desk-metrics.png" alt="Kalshi 15m Desk - decision model and live metrics" loading="lazy" /><div class="cap">Metrics &mdash; decision model bars and live values</div></div>
+    </div>
 
     <h3 class="c-purple" style="margin-top:26px;">SupaBird</h3>
     <div class="shot"><img src="img/01-supabird-landing.png" alt="SupaBird landing page" loading="lazy" /><div class="cap">Landing &mdash; pricing, features, login</div></div>
