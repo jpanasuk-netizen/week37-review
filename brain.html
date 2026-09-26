@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>My AI Operating System &mdash; 179 Skills, 2,426 Notes, One Box</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#050814;color:#E8EEF7;font-family:'IBM Plex Sans',sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1280px;margin:0 auto;padding:0 28px}
+h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,9vw,116px);line-height:.92;letter-spacing:.04em}
+h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(30px,4vw,44px);letter-spacing:.04em;margin-bottom:8px}
+.kicker{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:#22D3EE;margin-bottom:10px}
+.subline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:23px;color:#9AAFC7;line-height:1.5;max-width:900px}
+.rule{width:88px;height:2px;background:linear-gradient(90deg,#C084FC,#22D3EE);margin:22px 0}
+.rule.gold{background:linear-gradient(90deg,#FBBF24,#FB923C)}
+section{padding:72px 0}
+.card{background:#0B1220;border:1px solid #1E2A44;padding:28px}
+
+/* ---- DIAGRAM ---- */
+.board{background:#080D1B;border:1px solid #1E2A44;padding:30px 26px;position:relative}
+.board svg{width:100%;height:auto;display:block}
+.bus{fill:none;stroke:#22D3EE;stroke-width:1.4;opacity:.5}
+.bus.dim{stroke:#C084FC;opacity:.32}
+.bus.gold{stroke:#FBBF24;opacity:.3}
+.node{fill:#0B1220;stroke-width:1.6}
+.node text{font-family:'IBM Plex Mono',monospace;font-size:12.5px;font-weight:500}
+.node .sub{font-size:10px;fill:#7E93AE;letter-spacing:.06em}
+.n-core{fill:#101A2E;stroke:#22D3EE}
+.n-vault{fill:#0E1A16;stroke:#34D399}
+.n-know{fill:#15102A;stroke:#C084FC}
+.n-media{fill:#1E1206;stroke:#FB923C}
+.n-trade{fill:#1A0E10;stroke:#F87171}
+.n-util{fill:#0F1524;stroke:#64748B}
+.hub{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:.05em;fill:#FBBF24}
+.ctr{font-family:'Bebas Neue',sans-serif;font-size:23px;letter-spacing:.05em}
+.c-cy{stroke:#22D3EE}.c-gr{stroke:#34D399}.c-pu{stroke:#C084FC}.c-or{stroke:#FB923C}.c-rd{stroke:#F87171}.c-gr2{stroke:#94A3B8}
+.tx-cy{fill:#22D3EE}.tx-gr{fill:#34D399}.tx-pu{fill:#C084FC}.tx-or{fill:#FB923C}.tx-rd{fill:#F87171}.tx-sl{fill:#94A3B8}
+.legend{font-family:'IBM Plex Mono',monospace;font-size:10.5px;fill:#7E93AE}
+</style>
+</head>
+<body>
+
+<section style="padding:88px 0 40px">
+  <div class="wrap">
+    <div class="kicker">The vault snapshot &mdash; 2026-09-26</div>
+    <div class="rule"></div>
+    <h1>MY AI<br />OPERATING<br />SYSTEM</h1>
+    <p class="subline">A second brain in Obsidian, 179 skills driving it, and twenty agent seats reading and writing the same notes. One RTX 4070. No cluster, no enterprise seat licenses, no data center.</p>
+  </div>
+</section>
+
+<section style="padding:0 0 30px">
+  <div class="wrap">
+    <div class="board">
+      <svg viewBox="0 0 1180 780" role="img" aria-label="Diagram of the HermesVault second brain: one center hub wired to six capability clusters, with the largest skills named in each">
+        <text class="hub" x="30" y="30">HERMESVAULT &mdash; 2,426 NOTES / 137 FOLDERS / 20 SEATS</text>
+
+        <!-- buses from hub -->
+        <path class="bus"      d="M590 300 L590 118"/>
+        <path class="bus dim"  d="M420 320 L250 200"/>
+        <path class="bus dim"  d="M440 350 L280 470"/>
+        <path class="bus gold" d="M590 400 L590 560"/>
+        <path class="bus"      d="M760 320 L930 200"/>
+        <path class="bus dim"  d="M740 350 L900 470"/>
+        <path class="bus dim"  d="M500 250 L330 90"/>
+
+        <!-- CENTER -->
+        <rect class="node n-core" x="430" y="300" width="320" height="96" rx="4"/>
+        <text class="ctr tx-cy" x="590" y="338" text-anchor="middle">BRAIN</text>
+        <text class="sub" x="590" y="362" text-anchor="middle" fill="#9AAFC7" font-size="11" font-family="'IBM Plex Mono',monospace">00-Shared / BRAIN.md &middot; INDEX.md</text>
+        <text class="sub" x="590" y="382" text-anchor="middle" fill="#7E93AE" font-size="10" font-family="'IBM Plex Mono',monospace">Holographic memory &middot; 3,662 facts</text>
+
+        <!-- SECOND BRAIN OS -->
+        <rect class="node n-core" x="430" y="60" width="320" height="58" rx="4"/>
+        <text x="590" y="84" text-anchor="middle" class="tx-cy" font-size="13" font-weight="500">SECOND-BRAIN OS</text>
+        <text class="sub" x="590" y="103" text-anchor="middle">41 skills &middot; query / capture / review / lint</text>
+
+        <!-- VAULT: continuity -->
+        <rect class="node n-vault" x="110" y="140" width="280" height="120" rx="4"/>
+        <text class="tx-gr" x="130" y="168" font-size="13" font-weight="500">CONTINUITY &amp; MEMORY</text>
+        <text class="sub" x="130" y="190">00-Continuity &middot; 00-Inbox &middot; 00-Shared</text>
+        <text class="sub" x="130" y="209">Leo dump 2026-09-17 &middot; 22 notes / 7.4M</text>
+        <text class="sub" x="130" y="228">BOT PAGES &middot; REGISTRY &middot; CORRECTIONS</text>
+        <text class="sub" x="130" y="247" fill="#34D399">survives a dead vendor</text>
+
+        <!-- VAULT: fleet -->
+        <rect class="node n-vault" x="110" y="410" width="280" height="120" rx="4"/>
+        <text class="tx-gr" x="130" y="438" font-size="13" font-weight="500">FLEET &amp; ORG</text>
+        <text class="sub" x="130" y="460">10-Fleet &middot; 30-CashWar &middot; 60-Trading</text>
+        <text class="sub" x="130" y="479">134 / 51 / 45 notes</text>
+        <text class="sub" x="130" y="498">ROSTER &middot; PIPES &middot; RULES &middot; NEVER LISTS</text>
+        <text class="sub" x="130" y="517" fill="#34D399">gates live here, not in code</text>
+
+        <!-- KNOWLEDGE -->
+        <rect class="node n-know" x="150" y="20" width="300" height="70" rx="4"/>
+        <text class="tx-pu" x="170" y="46" font-size="13" font-weight="500">KNOWLEDGE INGEST</text>
+        <text class="sub" x="170" y="66">KARPATHY-FLOW &middot; 19 notes</text>
+        <text class="sub" x="170" y="82">transcripts 21 &middot; Agent-Reach 27</text>
+
+        <!-- MEDIA -->
+        <rect class="node n-media" x="430" y="500" width="320" height="120" rx="4"/>
+        <text class="tx-or" x="450" y="528" font-size="13" font-weight="500">MEDIA &amp; CONTENT</text>
+        <text class="sub" x="450" y="550">50-YouTube 775M &middot; 40-Content 189M</text>
+        <text class="sub" x="450" y="569">MACHINE-ROOM-PUBLISH &middot; MUSE-VIDEO</text>
+        <text class="sub" x="450" y="588">COBALT-MEDIA-DOWNLOAD &middot; SOCIAL-MEDIA (5)</text>
+        <text class="sub" x="450" y="607" fill="#FB923C">The Machine Room &mdash; 11am/5pm/6pm</text>
+
+        <!-- TRADING -->
+        <rect class="node n-trade" x="790" y="140" width="280" height="120" rx="4"/>
+        <text class="tx-rd" x="810" y="168" font-size="13" font-weight="500">TRADING &amp; CASH</text>
+        <text class="sub" x="810" y="190">60-Trading &middot; 70-Finance &middot; 40-Lab</text>
+        <text class="sub" x="810" y="209">KALSHI (1) &middot; FINANCE (11)</text>
+        <text class="sub" x="810" y="228">PAPER-ONLY &middot; 0.0% HIT RATE KEPT</text>
+        <text class="sub" x="810" y="247" fill="#F87171">every gate written down first</text>
+
+        <!-- UTIL -->
+        <rect class="node n-util" x="790" y="410" width="280" height="120" rx="4"/>
+        <text class="tx-sl" x="810" y="438" font-size="13" font-weight="500">TOOLING &amp; CODE</text>
+        <text class="sub" x="810" y="460">CODEBASE-MEMORY &middot; GRAPHIFY &middot; GITINGEST</text>
+        <text class="sub" x="810" y="479">GITHUB (5) &middot; PRODUCTIVITY (15)</text>
+        <text class="sub" x="810" y="498">CREATIVE (17) &middot; RESEARCH (8) &middot; ML0PS (5)</text>
+        <text class="sub" x="810" y="517">DEV0PS &middot; DEVOPS &middot; SPEC-DRIVEN</text>
+
+        <!-- seat ring -->
+        <text class="legend" x="30" y="700">TWENTY AGENT SEATS READ AND WRITE THE SAME VAULT &mdash; LEO DISPATCHES, CYNTHIA PACKETS, EVE DASHBOARDS, TAPROOT LAB, HERMES-BOT CONTINUITY, FREEBUFF KALSHI, GROK-BUILD SHIPS</text>
+        <text class="legend" x="30" y="722">NO SEAT OWNS THE NOTES. THE VAULT IS THE SHARED STATE; THE BUS IS THE ONLY WAY THEY TALK. 66 BUS EVENTS IN 7 DAYS, 21 OF THEM INSIDE A SINGLE MINUTE.</text>
+        <text class="legend" x="30" y="744">HIRING NOTE: WHEN GROK DIED WE LOST NOTHING, BECAUSE NONE OF IT LIVED INSIDE GROK.</text>
+        <line x1="30" y1="762" x2="1150" y2="762" stroke="#1E2A44" stroke-width="1"/>
+        <text class="legend" x="30" y="776" fill="#4A5A72">COUNTS MEASURED ON DISK 2026-09-26 &middot; SIZES ROUNDED &middot; SKILLS = 179 SKILL.md ACROSS 78 CATEGORIES</text>
+
+        <!-- invisible hit targets, one per labeled cluster -->
+        <g class="hit" tabindex="0" role="button" data-k="vault" aria-label="Continuity and memory cluster">
+          <rect x="110" y="140" width="280" height="120" fill="transparent" />
+        </g>
+        <g class="hit" tabindex="0" role="button" data-k="fleet" aria-label="Fleet and org cluster">
+          <rect x="110" y="410" width="280" height="120" fill="transparent" />
+        </g>
+        <g class="hit" tabindex="0" role="button" data-k="know" aria-label="Knowledge ingest cluster">
+          <rect x="150" y="20" width="300" height="70" fill="transparent" />
+        </g>
+        <g class="hit" tabindex="0" role="button" data-k="core" aria-label="Second-brain OS cluster">
+          <rect x="430" y="60" width="320" height="58" fill="transparent" />
+        </g>
+        <g class="hit" tabindex="0" role="button" data-k="hub" aria-label="The brain hub">
+          <rect x="430" y="300" width="320" height="96" fill="transparent" />
+        </g>
+        <g class="hit" tabindex="0" role="button" data-k="media" aria-label="Media and content cluster">
+          <rect x="430" y="500" width="320" height="120" fill="transparent" />
+        </g>
+        <g class="hit" tabindex="0" role="button" data-k="trade" aria-label="Trading and cash cluster">
+          <rect x="790" y="140" width="280" height="120" fill="transparent" />
+        </g>
+        <g class="hit" tabindex="0" role="button" data-k="util" aria-label="Tooling and code cluster">
+          <rect x="790" y="410" width="280" height="120" fill="transparent" />
+        </g>
+      </svg>
+    </div>
+    <p style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.16em;color:#7E93AE;margin-top:14px">CLICK ANY BOX TO SEE THE SKILLS BEHIND IT</p>
+
+    <div id="detail" hidden></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">01 &mdash; the numbers</div>
+    <div class="rule"></div>
+    <h2>WHAT IS ACTUALLY IN THERE</h2>
+    <table style="width:100%;border-collapse:collapse;margin-top:22px;font-size:14px">
+      <thead><tr style="border-bottom:1px solid #1E2A44;text-align:left">
+        <th style="padding:10px 0;color:#22D3EE;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em">LAYER</th>
+        <th style="color:#22D3EE;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em">COUNT</th>
+        <th style="color:#22D3EE;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.2em">ON DISK</th>
+      </tr></thead>
+      <tbody>
+        <tr style="border-bottom:1px solid #131C2E"><td style="padding:11px 0">Markdown notes</td><td style="color:#FBBF24;font-weight:600">2,426</td><td style="color:#9AAFC7">137 folders</td></tr>
+        <tr style="border-bottom:1px solid #131C2E"><td style="padding:11px 0">Installed skills</td><td style="color:#FBBF24;font-weight:600">179</td><td style="color:#9AAFC7">78 categories</td></tr>
+        <tr style="border-bottom:1px solid #131C2E"><td style="padding:11px 0">Second-brain OS</td><td style="color:#34D399;font-weight:600">41</td><td style="color:#9AAFC7">the largest single family</td></tr>
+        <tr style="border-bottom:1px solid #131C2E"><td style="padding:11px 0">Agent seats</td><td style="color:#FBBF24;font-weight:600">20</td><td style="color:#9AAFC7">one bus, no seat owns the notes</td></tr>
+        <tr style="border-bottom:1px solid #131C2E"><td style="padding:11px 0">Holographic facts</td><td style="color:#FBBF24;font-weight:600">3,662</td><td style="color:#9AAFC7">trust-scored, entity-resolved</td></tr>
+        <tr><td style="padding:11px 0">Bus events / 7 days</td><td style="color:#FBBF24;font-weight:600">66</td><td style="color:#9AAFC7">Sun 2 &rarr; Fri 35</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">02 &mdash; the point</div>
+    <div class="rule gold"></div>
+    <h2>PLAIN FILES. NO LOCK-IN.</h2>
+    <p class="subline" style="margin-top:16px">The whole thing is Markdown in a folder on my desktop. If the agent framework disappeared tomorrow, I would still have every decision, every rule, and every correction &mdash; in a format that opens anywhere.</p>
+    <p style="margin-top:22px;max-width:860px;color:#C6D4E4;font-size:15px;line-height:1.75">That is the part I care about. The AI layer is replaceable. The notes are not. When the vendor bill came due, I did not lose a brain, I inherited a folder. Aiming a second brain at a rented model is the whole bet &mdash; and the parts of the stack that decide <em>policy</em> &mdash; the gates, the never-do lists, the stop orders &mdash; live in the notes where an agent can read them but not quietly edit them out of existence.</p>
+  </div>
+</section>
+
+</body>
+<script>
+const SKILLS = {
+  vault: {
+    name: "Continuity & Memory",
+    color: "#34D399",
+    lede: "What survives a dead vendor. Every decision, gate and correction lives in Markdown here first.",
+    items: [
+      ["00-Continuity", "22 notes / 7.4M. Leo's full dump plus the fleet handoff docs."],
+      ["00-Inbox", "28 notes. Everything lands here first, sorted weekly, zero unheadered files."],
+      ["00-Shared", "55 notes. BRAIN.md and INDEX.md are the only entry points that matter."],
+      ["CORRECTIONS.md", "The file that records what the AI got wrong. Most projects skip this. It is the whole point."],
+      ["BOT PAGES", "One page per seat. What it owns, what it never touches, where its dump lives."],
+      ["REGISTRY", "Routing table for every seat plus the bus protocol."],
+      ["HERMES-LCM", "Skill. Long-horizon retrieval over the evidence, not a summary of the summary."],
+      ["SECOND-BRAIN-MEMORY", "Skill. Holographic store with entity resolution and trust scores."],
+      ["SECOND-BRAIN-CAPTURE / -QUERY / -CONTEXT", "Skills. Put something in, get something back with its citation, assemble a small packet."],
+      ["SECOND-BRAIN-REVIEW / -WEEKLY / -REPORT", "Skills. The weekly sweep that keeps 2,426 notes from rotting."]
+    ]
+  },
+  fleet: {
+    name: "Fleet & Org",
+    color: "#34D399",
+    lede: "Gates live in the notes where an agent can read them but not quietly edit them out.",
+    items: [
+      ["10-Fleet", "134 notes. ROSTER.md, AGENCY_MODEL_DRAFT.md, standing orders."],
+      ["30-CashWar", "51 notes. PIPES.md is the source of truth for the cash lanes."],
+      ["60-Trading", "45 notes. Strategy cards, the paper-only ban, the stop-order history."],
+      ["HERMES-BOT-FLEETS", "Skill. Build and maintain multi-bot personas and profiles."],
+      ["DELEGATING-WORK-TO-TEAMMATES", "Skill. Hand a task to a named seat and confirm it actually started."],
+      ["AUTONOMOUS-AI-AGENTS", "Skill family, 7 skills. Codex, Claude Code, OpenCode, computer-use."],
+      ["LEO = DISPATCH", "Leo directs. Every other seat is subservient. Leo does not do lane work."],
+      ["NEVER LISTS", "Each seat page carries its own forbidden moves. The reason the fleet hasn't burned itself."]
+    ]
+  },
+  know: {
+    name: "Knowledge Ingest",
+    color: "#C084FC",
+    lede: "Raw material lands verbatim. Distillation is a separate, later stage with provenance intact.",
+    items: [
+      ["KARPATHY-FLOW", "19 notes / 2.2M. Raw drops, wiki, ctx, mem, out. Verbatim at Stage 1, never edited in place."],
+      ["AGENT-REACH", "27 notes / 4.2M. The research skill that has to be used for 调研 / research / search."],
+      ["TRANSCRIPTS", "21 notes / 33M. Verbatim YouTube and podcast transcripts."],
+      ["FLOWS: raw / wiki / ctx / mem", "Each drop links OUT to provenance and each summary links BACK to its drop. No source, no claim."],
+      ["DEFUDDLE", "Skill. Clean markdown out of a page when the page won't hand it over."],
+      ["GROUNDED-CITATIONS", "Skill. Answer in the vault or don't answer."],
+      ["GITINGEST", "Skill. Repo to text."],
+      ["LLM-WIKI", "Skill. Karpathy-style interlinked markdown KB."]
+    ]
+  },
+  core: {
+    name: "Second-Brain OS",
+    color: "#22D3EE",
+    lede: "The largest single skill family in the install: 41 of 179. This is the operating system, not a plugin.",
+    items: [
+      ["QUERY", "Answer from the vault, read-only, with citations. If the vault doesn't say, it doesn't know."],
+      ["CAPTURE / WRITE / CONNECT", "Land a note, preserve the structure, link it to the right hub."],
+      ["DAILY / REVIEW / WEEKLY", "The cadences. Daily vault review, weekly synthesis, monthly deeper review."],
+      ["GRAPH", "Map hubs, orphans and link topology."],
+      ["LINT / LINT-REPORT / PRIVACY", "Structure, links, and a credentials sweep. Privacy is a skill, not a promise."],
+      ["HEALTH / HEALTH-CHECK / ONBOARD", "Operational checks, plus orienting a new agent to a live vault."],
+      ["BRIEF / CONTEXT / ASK", "Assemble a small cited packet instead of dumping the folder."],
+      ["DECISIONS / ARCHIVE / SOURCES", "Record a decision with its evidence. Cold-storage triage."],
+      ["COMMANDS / COMMANDS-HELP", "The Hermes-native command surface for all of the above."],
+      ["INTEGRATE / AUTOMATION / SCRATCH", "Add tools, automate maintenance, and keep drafts out of the live vault."]
+    ]
+  },
+  hub: {
+    name: "The Brain",
+    color: "#FBBF24",
+    lede: "One folder. 2,426 notes, 137 subfolders, 3,662 trust-scored facts, 20 seats reading and writing the same state.",
+    items: [
+      ["BRAIN.md", "The only page you have to read. Everything else indexes from it."],
+      ["INDEX.md", "The map. Regenerated by SECOND-BRAIN-REINDEX so it never drifts."],
+      ["NO SEAT OWNS THE NOTES", "The vault is the shared state. The bus is the only path between seats."],
+      ["HOLOGRAPHIC MEMORY", "3,662 facts with entity resolution and trust scores. Facts that stop being true get rated down."],
+      ["OPEN FORMAT", "Plain Markdown. If the framework vanished tomorrow the folder would still open anywhere."],
+      ["THE ACTUAL PAYOFF", "Grok access ended. I inherited a folder. Nothing lived inside the vendor."]
+    ]
+  },
+  media: {
+    name: "Media & Content",
+    color: "#FB923C",
+    lede: "The Machine Room: scripts, renders, a publish clock, and a downloader standing by.",
+    items: [
+      ["50-YouTube", "775M / 89 notes. The Machine Room scripts, render drops, publish clockwork."],
+      ["40-Content", "189M / 109 notes. Site builds, launch checklists, the calculator network, design references."],
+      ["MACHINE-ROOM-PUBLISH", "Skill. Keeps the account signed in and publishing on the 11am / 5pm IG and 6pm YT CT clock."],
+      ["MUSE-VIDEO", "Skill. Drives the local video API. Real generation is xAI Grok Imagine, not muse.ai — muse.ai has no usable API."],
+      ["COBALT-MEDIA-DOWNLOAD", "Skill. The downloader for pulling source media."],
+      ["SOCIAL-MEDIA", "Skill family, 5. Reddit reading, X reading, post drafting, YouTube upload."],
+      ["SONGSEE / GIF-SEARCH / YOUTUBE-CONTENT", "Skills. Spectrograms, GIFs, transcripts to summaries."],
+      ["OPENMONTAGE", "1,421 notes / 175M. The largest single folder in the vault by note count."],
+      ["CREATIVE", "17 skills. Architecture diagrams, infographics, excalidraw, manim, p5js, remotion-adjacent stills."],
+      ["THE-PUBLISH-CLOCK", "11am and 5pm Instagram, 6pm YouTube, Central. A watchdog catches whatever misses."],
+      ["POST GATE", "CorrectionBot drafts only. Nothing posts to @Jasper_Black without Jeremy's yes in the CoS chat."]
+    ]
+  },
+  trade: {
+    name: "Trading & Cash",
+    color: "#F87171",
+    lede: "Every gate is written down before it is switched on. That is why the losing numbers are public.",
+    items: [
+      ["60-Trading", "45 notes / 1.1M. Strategy cards, the paper-only ban, live-trading constraints."],
+      ["70-Finance", "6 notes. Cash truth, the flow tracker, the only place with actual dollars in it."],
+      ["40-Lab", "7 notes. Where experiments go before they earn a gate."],
+      ["KALSHI", "Skill. Kalshi trading, fills, bots, dashboards."],
+      ["FINANCE", "Skill family, 11. Live-market bot operations, risk, observability."],
+      ["LEVERAGED-TRADING-RISK", "Skill. Blowups are documented, not hidden. 500x is on the never-list."],
+      ["LEO OWNS LIVE", "The single rule. FreeBuff leads the 15-minute BTC lane; nothing else places an order."],
+      ["PAPER-ONLY", "The Debate Desk has a live cap of 0. FunTokens is WATCH-ONLY."],
+      ["THE ZERO", "181 samples at a 0.0% hit rate and a Sharpe of 3.08. Both on the dashboard, both kept."],
+      ["STOP ORDERS ARE WRITTEN DOWN", "HERMES_KALSHI_STOP, JEREMY_STOP.flag, skip_until. A flag nobody reads is a wish."],
+      ["KALSHI-TRADING-OPS / -OPERATIONS", "Skills. The rules for running and monitoring a live prediction-market bot."]
+    ]
+  },
+  util: {
+    name: "Tooling & Code",
+    color: "#94A3B8",
+    lede: "The layer that reads the vault and builds against it. Also the layer that gets replaced first.",
+    items: [
+      ["CODEBASE-MEMORY", "Skill. Structural code queries over a knowledge graph."],
+      ["GRAPHIFY", "Skill. Architecture questions against any codebase."],
+      ["GITHUB", "5 skills. Auth, issues, PR workflow, code review, repo management."],
+      ["PRODUCTIVITY", "15 skills. Documents, spreadsheets, presentations, meeting notes, action items."],
+      ["RESEARCH", "8 skills. arXiv, feeds, competitor news, Polymarket, grounded citations."],
+      ["MLOPS", "5 skills. HuggingFace, evaluation harnesses, weights and biases, local inference."],
+      ["SPEC-DRIVEN-DEVELOPMENT / TEST-DRIVEN", "Skills. Specs before code, red-green-refactor."],
+      ["API-AND-INTERFACE-DESIGN / MAKE-INTERFACES-FEEL-BETTER", "Skills. Stable APIs, and the part users actually touch."],
+      ["I-HAVE-ADHD", "Skill. Shapes output for a reader who needs the next action first. Load-bearing, not cosmetic."],
+      ["SELENIUMBASE", "Skill. Browser automation when a page won't hand over its text."],
+      ["HERMES-ENVIRONMENT-RESTORE", "Skill. Rebuild the whole stack from backup, skills and package list."],
+      ["DEVOPS / SPEC", "Deployment and specification tooling for the same box."]
+    ]
+  }
+};
+
+const box = document.getElementById("detail");
+const DEFAULT = "Pick a box above.";
+
+function esc(s){ return s.replace(/&/g,"&amp;").replace(/</g,"&lt;"); }
+
+function render(key) {
+  const s = SKILLS[key];
+  if (!s) { box.innerHTML = ""; box.hidden = true; return; }
+  const rows = s.items.map(([n, d]) =>
+    `<tr>
+       <td style="padding:10px 14px 10px 0;vertical-align:top;white-space:nowrap;color:${s.color};font-family:'IBM Plex Mono',monospace;font-size:12.5px;font-weight:500">${esc(n)}</td>
+       <td style="padding:10px 0;vertical-align:top;color:#C6D4E4;font-size:14px;line-height:1.6">${esc(d)}</td>
+     </tr>`).join("");
+  box.hidden = false;
+  box.innerHTML =
+    `<div class="card" style="border-color:${s.color}44;background:#0A1120">
+       <div class="kicker" style="color:${s.color}">${esc(s.name)}</div>
+       <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:21px;color:#9AAFC7;margin:6px 0 18px;line-height:1.5">${esc(s.lede)}</p>
+       <table style="width:100%;border-collapse:collapse">${rows}</table>
+     </div>`;
+}
+
+function bind() {
+  document.querySelectorAll(".hit").forEach(g => {
+    const fire = () => { render(g.dataset.k); box.scrollIntoView({ behavior: "smooth", block: "nearest" }); };
+    g.addEventListener("click", fire);
+    g.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); fire(); } });
+    const r = g.querySelector("rect");
+    r.style.cursor = "pointer";
+    r.addEventListener("mouseenter", () => r.setAttribute("fill", "rgba(34,211,238,.10)"));
+    r.addEventListener("mouseleave", () => r.setAttribute("fill", "transparent"));
+  });
+}
+bind();
+render("hub");
+</script>
+</body>
+</html>
