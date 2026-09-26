@@ -1,0 +1,52 @@
+X POST — Week 37 site launch
+Draft only. Jeremy posts. 2026-09-26.
+
+LINK: https://jpanasuk-netizen.github.io/week37-review/
+
+--------------------------------------------------------------------
+PREFERRED (long form — requires X Premium, 1180 chars)
+--------------------------------------------------------------------
+Four systems shipped in seven days. One RTX 4070. No VC, no team.
+
+SupaBird — AI growth tool for X. 10 modules: X-GPT writes in your
+voice, Content Machine turns one idea into a week of posts,
+Video-to-Post, X Coach, Engage, Calendar, Library.
+
+FunTokens — watches 40 on-chain wallets and 747 tokens. WATCH-ONLY,
+never trades.
+
+The Debate Desk — 9 AI agents argue a stock out loud. Chartie on
+technicals, Ledgie on fundamentals, Newsie on news, Vibes on
+sentiment, Bully and Baren fighting it out, then Trader Trax, Risky
+in three voices, and The Judge. Ran NVDA through it. Verdict: Hold.
+
+Connecture — a real GUI client speaking the Muse wire protocol, plus
+a connector hub with 13 of 21 integrations live. Built by FreeBuff.
+
+Both trading tools are paper-only. FunTokens has zero backtested
+picks and one hot take at 100% — that's a sample of one, and the
+site says so out loud.
+
+Full breakdown, all 17 screenshots, the week's data:
+https://jpanasuk-netizen.github.io/week37-review/
+
+--------------------------------------------------------------------
+FALLBACK (no Premium, under 280)
+--------------------------------------------------------------------
+Four systems shipped in seven days on one RTX 4070. SupaBird,
+FunTokens, a Debate Desk where 9 agents argue stocks out loud, and
+Connecture. Both trading tools are paper-only, and the site says so
+out loud.
+
+https://jpanasuk-netizen.github.io/week37-review/
+
+--------------------------------------------------------------------
+NOTES
+--------------------------------------------------------------------
+- Link is in the body, not gated behind a comment. The house
+  "constrained comment ask" rule exists to block engagement farms
+  ("comment ADS"). This is a launch post for Jeremy's own page —
+  gating it behind a comment just costs the click.
+- No "comment ADS". No DM bait. No income claim anywhere.
+- The 100% Hot Take is disclosed as n=1 on purpose. Cutting that
+  sentence is what would make the post read as a shill post.
