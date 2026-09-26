@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Week 37 Review — 4 Systems Shipped | Jeremy Panasuk</title>
+<meta name="description" content="What the agent fleet shipped 2026-09-20 to 2026-09-26: SupaBird, FunTokens, The Debate Desk, Connecture. Real numbers, paper-only gates, no income claims." />
+<link rel="canonical" href="https://jpanasuk-netizen.github.io/week37-review/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Week 37 Review — 4 Systems Shipped | Jeremy Panasuk" />
+<meta property="og:description" content="Four systems shipped in one week on a single RTX 4070. Real data, honest gates." />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #050814; --navy: #0b1220; --panel: #10192c;
+    --cyan: #22d3ee; --purple: #c084fc; --orange: #fb923c;
+    --green: #34d399; --gold: #fbbf24;
+    --text: #e8eef7; --muted: #93a4bb;
+    --line: rgba(34, 211, 238, 0.35);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--bg); color: var(--text); font-family: "IBM Plex Sans", sans-serif; }
+  a { color: var(--cyan); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 0 36px; }
+  .kicker { font-family: "IBM Plex Mono", monospace; font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--cyan); }
+  .rule { height: 2px; width: 88px; background: linear-gradient(90deg, var(--cyan), var(--purple)); margin: 10px 0 16px; }
+  .rule.orange { background: linear-gradient(90deg, var(--orange), #f43f5e); }
+  .rule.green { background: linear-gradient(90deg, var(--green), var(--cyan)); }
+  .rule.gold { background: linear-gradient(90deg, var(--gold), var(--orange)); }
+
+  header.nav { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 36px; background: rgba(5, 8, 20, 0.82); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(34, 211, 238, 0.15); }
+  header.nav .brand { font-family: "Bebas Neue", sans-serif; letter-spacing: 0.18em; font-size: 22px; color: var(--text); }
+  header.nav .brand span { color: var(--cyan); }
+  header.nav nav { display: flex; gap: 22px; }
+  header.nav nav a { font-family: "IBM Plex Mono", monospace; font-size: 11.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+  header.nav nav a:hover { color: var(--cyan); text-decoration: none; }
+
+  section { padding: 72px 0; }
+  h1, h2 { font-family: "Bebas Neue", sans-serif; letter-spacing: 0.04em; }
+  h1 { font-size: clamp(48px, 8vw, 92px); line-height: 0.92; }
+  h2 { font-size: 48px; }
+  h3 { font-size: 18px; font-weight: 600; }
+  p { color: #c5d2e3; line-height: 1.55; }
+  .c-cyan { color: var(--cyan); } .c-purple { color: var(--purple); }
+  .c-orange { color: var(--orange); } .c-green { color: var(--green); }
+  .c-gold { color: var(--gold); } .c-muted { color: var(--muted); }
+  .subline { font-family: "Cormorant Garamond", serif; font-style: italic; font-size: clamp(19px, 2.3vw, 27px); color: var(--muted); margin-top: 14px; max-width: 900px; line-height: 1.4; }
+
+  .metrics { margin-top: 26px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .metric { background: var(--panel); border: 1px solid rgba(34, 211, 238, 0.1); padding: 18px 16px 16px; text-align: center; }
+  .metric b { display: block; font-family: "Bebas Neue", sans-serif; font-size: 42px; color: var(--gold); letter-spacing: 0.02em; line-height: 1; }
+  .metric span { display: block; margin-top: 8px; font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+
+  .sys-grid { margin-top: 26px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .sys { background: rgba(11, 18, 32, 0.78); border: 1px solid rgba(34, 211, 238, 0.1); padding: 22px 24px 24px; }
+  .sys .tag { font-family: "IBM Plex Mono", monospace; font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+  .sys h3 { font-family: "Bebas Neue", sans-serif; font-size: 34px; letter-spacing: 0.03em; margin: 6px 0 4px; }
+  .sys .port { font-family: "IBM Plex Mono", monospace; font-size: 11px; color: var(--cyan); margin-bottom: 10px; }
+  .sys p { font-size: 14.5px; }
+  .sys ul { margin: 12px 0 0 16px; color: var(--muted); font-size: 13.5px; line-height: 1.5; }
+  .gate { display: inline-block; margin-top: 12px; font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; padding: 5px 10px; border: 1px solid var(--orange); color: var(--orange); }
+  .gate.locked { border-color: var(--green); color: var(--green); }
+
+  .shot { margin-top: 18px; border: 1px solid rgba(34, 211, 238, 0.12); background: var(--navy); padding: 10px; }
+  .shot img { display: block; width: 100%; height: auto; }
+  .shot .cap { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding: 9px 4px 2px; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+
+  .cmp-table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 15px; }
+  .cmp-table th, .cmp-table td { border: 1px solid var(--line); padding: 10px 12px; text-align: left; vertical-align: top; }
+  .cmp-table th { color: var(--cyan); font-family: "IBM Plex Mono", monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; }
+  .cmp-table td b { color: var(--text); }
+
+  .bars { margin-top: 22px; display: flex; align-items: flex-end; gap: 14px; height: 220px; padding-bottom: 4px; }
+  .bar { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; height: 100%; }
+  .bar i { display: block; background: linear-gradient(180deg, var(--cyan), var(--purple)); }
+  .bar.peak i { background: linear-gradient(180deg, var(--gold), var(--orange)); }
+  .bar b { font-family: "Bebas Neue", sans-serif; font-size: 24px; color: var(--text); text-align: center; margin-bottom: 4px; }
+  .bar span { font-family: "IBM Plex Mono", monospace; font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-align: center; margin-top: 7px; }
+
+  .tl { margin-top: 22px; border-left: 2px solid rgba(34, 211, 238, 0.25); padding-left: 0; list-style: none; }
+  .tl li { position: relative; padding: 0 0 26px 26px; }
+  .tl li::before { content: ""; position: absolute; left: -7px; top: 7px; width: 12px; height: 12px; background: var(--cyan); }
+  .tl li.peak::before { background: var(--gold); }
+  .tl .when { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--cyan); }
+  .tl li.peak .when { color: var(--gold); }
+  .tl .what { font-size: 16px; color: var(--text); margin-top: 5px; font-weight: 500; }
+  .tl .detail { font-size: 14px; color: var(--muted); margin-top: 4px; line-height: 1.5; }
+
+  .tldr { margin-top: 22px; padding: 18px 22px; border: 1px solid var(--line); background: rgba(126, 184, 255, 0.06); }
+  .tldr h2 { font-size: 24px; margin-bottom: 10px; }
+  .tldr p { font-size: 16px; margin-bottom: 9px; }
+  .tldr p:last-child { margin-bottom: 0; }
+
+  footer { border-top: 1px solid rgba(34, 211, 238, 0.15); padding: 34px 0 46px; margin-top: 20px; }
+  footer p { font-size: 13px; color: var(--muted); }
+  .note { font-family: "IBM Plex Mono", monospace; font-size: 11.5px; letter-spacing: 0.08em; color: var(--muted); margin-top: 16px; line-height: 1.7; }
+
+  @media (max-width: 900px) {
+    .metrics, .sys-grid, .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    .wrap { padding: 0 20px; }
+    section { padding: 52px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="brand">WEEK<span>37</span></div>
+  <nav>
+    <a href="#systems">Systems</a>
+    <a href="#timeline">Timeline</a>
+    <a href="#data">Data</a>
+    <a href="#gates">Gates</a>
+    <a href="#shots">Screens</a>
+  </nav>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">2026-09-20 &rarr; 2026-09-26 &middot; Single RTX 4070</div>
+    <div class="rule"></div>
+    <h1>FOUR SYSTEMS<br />SHIPPED IN<br />ONE WEEK</h1>
+    <p class="subline">A growth tool, a wallet watcher, a panel of agents that argue about stocks out loud, and the control room that runs all of it. No VC, no team, no data center.</p>
+
+    <div class="metrics">
+      <div class="metric"><b>4</b><span>Systems shipped</span></div>
+      <div class="metric"><b>20</b><span>Hermes seats</span></div>
+      <div class="metric"><b>66</b><span>Bus events / 7 days</span></div>
+      <div class="metric"><b>0</b><span>Income claims</span></div>
+    </div>
+
+    <div class="tldr">
+      <h2>THE HONEST VERSION</h2>
+      <p>Both trading tools are <b class="c-orange">deliberately disarmed</b>. FunTokens is WATCH-ONLY with live off and zero backtested picks. The Debate Desk is PAPER ONLY with a live cap of 0. The 100% win rate visible on the FunTokens dashboard is a single sample, not a strategy.</p>
+      <p>That is not a caveat &mdash; that is the feature. The gate opens when the backtests earn it. Every number on this page is a real measured value, and the ones we do not have are shown as <b class="c-muted">insufficient data</b> rather than invented.</p>
+    </div>
+  </div>
+</section>
+
+<section id="systems">
+  <div class="wrap">
+    <div class="kicker">01 &mdash; The four builds</div>
+    <div class="rule"></div>
+    <h2>WHAT EACH ONE DOES</h2>
+
+    <div class="sys-grid">
+      <div class="sys">
+        <div class="tag">Built by grok-build</div>
+        <h3 class="c-purple">SUPABIRD</h3>
+        <div class="port">Next.js 16 &middot; local &middot; :3000</div>
+        <p>An AI growth tool for X with ten working modules. The whole loop: find an idea, write it, queue it, watch what lands.</p>
+        <ul>
+          <li><b>X-GPT</b> &mdash; writes in your voice, not ChatGPT's (My Style / Remix / Creator Style)</li>
+          <li><b>IdeasLab</b> &mdash; a swipe file instead of a blank page</li>
+          <li><b>Content Machine</b> &mdash; one idea becomes a week of posts</li>
+          <li><b>Video-to-Post</b> &mdash; you made a video, it writes the post that sells it</li>
+          <li><b>X Coach</b> &mdash; goals, so "post more" becomes "impressions hit 500"</li>
+          <li><b>Engage</b> &mdash; find people worth talking to instead of doom-scrolling</li>
+          <li><b>Collections</b> &middot; <b>Calendar</b> &middot; <b>My Library</b></li>
+        </ul>
+        <span class="gate locked">Runs locally &middot; feed data stays on your machine</span>
+      </div>
+
+      <div class="sys">
+        <div class="tag">On-chain watcher</div>
+        <h3 class="c-cyan">FUNTOKENS</h3>
+        <div class="port">Desk UI &middot; :8791</div>
+        <p>Watches 40 on-chain wallets and 747 tokens so you don't have to. Shows the wallets, the transactions, and what those wallets are actually accumulating &mdash; then tracks whether the hot takes were right.</p>
+        <ul>
+          <li>40 wallets tracked &middot; 747 tokens in scope</li>
+          <li>Wallet transaction history, SOL balance shown read-only</li>
+          <li>Hot Takes tracker with a rolling win rate</li>
+          <li>Copy-Worthy / Watch / Avoid / Bought / Sold roster</li>
+          <li><b class="c-orange">0</b> backtested picks &mdash; stats honestly read <i>insufficient data</i></li>
+        </ul>
+        <span class="gate">WATCH-ONLY &middot; LIVE OFF &middot; no implementation</span>
+      </div>
+
+      <div class="sys">
+        <div class="tag">Multi-agent debate</div>
+        <h3 class="c-gold">THE DEBATE DESK</h3>
+        <div class="port">TradingAgents &middot; :8796</div>
+        <p>Nine AI agents argue a stock out loud, then settle it. Not one model handing you an answer &mdash; nine giving you a fight you can watch.</p>
+        <ul>
+          <li>Roundtable: <b>Chartie</b> (technicals) &middot; <b>Ledgie</b> (fundamentals) &middot; <b>Newsie</b> (news) &middot; <b>Vibes</b> (sentiment) &middot; <b>Bully</b> (bull) &middot; <b>Baren</b> (bear)</li>
+          <li>Judge table: <b>Trader Trax</b> (turns argument into a trade) &middot; <b>Risky</b> (risk team, three voices: Aggressive / Conservative / Neutral) &middot; <b>The Judge</b> (research + portfolio manager, final verdict)</li>
+          <li>Every seat has its own color and character. Every round streams live.</li>
+          <li>NVDA verdict: <b class="c-gold">Hold</b></li>
+        </ul>
+        <span class="gate">PAPER ONLY &middot; live cap = 0</span>
+      </div>
+
+      <div class="sys">
+        <div class="tag">Owned by FreeBuff</div>
+        <h3 class="c-green">CONNECTURE</h3>
+        <div class="port">MSP control room &middot; :8765 &middot; connecture.solar-sizer.com</div>
+        <p>A GUI client that speaks the Muse wire protocol directly, plus a connector hub for every agent, knowledge source and platform on the machine. Not a wrapper &mdash; sessions, turns, approvals, models and the live view stream are real protocol traffic.</p>
+        <ul>
+          <li><b>13 of 21</b> integrations connected: Muse &middot; FreeBuff &middot; Grok &middot; Grokbot &middot; Hermes &middot; Cline &middot; MiMo &middot; OpenCode &middot; Obsidian</li>
+          <li>Bus on 8787 with 11 helpers &middot; Gate on 8790</li>
+          <li>Token-gated publishing: named tokens, scoped, stored hashed, revocable</li>
+          <li>Mounts as an MCP server over both streamable HTTP and stdio</li>
+        </ul>
+        <span class="gate locked">Everything that should be running is running</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="data">
+  <div class="wrap">
+    <div class="kicker">02 &mdash; Measured, not estimated</div>
+    <div class="rule orange"></div>
+    <h2>THE DATA POINTS</h2>
+
+    <h3 class="c-cyan" style="margin-top:26px;">Bus events per day</h3>
+    <div class="bars">
+      <div class="bar"><b>2</b><i style="height:6%"></i><span>Sun 20</span></div>
+      <div class="bar"><b>6</b><i style="height:17%"></i><span>Mon 21</span></div>
+      <div class="bar"><b>1</b><i style="height:3%"></i><span>Tue 22</span></div>
+      <div class="bar"><b>2</b><i style="height:6%"></i><span>Wed 23</span></div>
+      <div class="bar"><b>19</b><i style="height:54%"></i><span>Thu 24</span></div>
+      <div class="bar peak"><b>35</b><i style="height:100%"></i><span>Fri 25</span></div>
+      <div class="bar"><b>1</b><i style="height:3%"></i><span>Sat 26</span></div>
+    </div>
+    <p class="note">Thursday to Friday was a 10&times; jump in one day &mdash; 19 to 35 events. A single Motion With Receipts fan-out reached 6 seats inside 60 seconds. SupaBird also shipped Thursday, and a <span class="c-orange">C:\c\Users\...</span> path bug was caught and fixed within five minutes of first launch.</p>
+
+    <h3 class="c-purple" style="margin-top:34px;">The four reference systems</h3>
+    <table class="cmp-table">
+      <thead><tr><th>System</th><th>Role</th><th>Version / state</th><th>Verified</th></tr></thead>
+      <tbody>
+        <tr><td><b>Muse</b></td><td>Local video gateway + MSP agent host</td><td>1.3.0 &middot; <span class="c-green">create_ready: true</span> &middot; no API key required</td><td>2026-09-26</td></tr>
+        <tr><td><b>FreeBuff</b></td><td>Owns Connecture</td><td>0.0.200</td><td>2026-09-26</td></tr>
+        <tr><td><b>Grok</b></td><td>Build engine</td><td>1.0.41 [stable] &middot; default <span class="c-cyan">grok-4.7</span></td><td>2026-09-26</td></tr>
+        <tr><td><b>MiMo</b></td><td>Not a SaaS &mdash; a <b>local model</b></td><td>llama.cpp <span class="c-cyan">mimo2.cpp</span> + MiMo-VL template</td><td>2026-09-26</td></tr>
+      </tbody>
+    </table>
+    <p class="note">These four are not four chatbots. Muse runs the protocol. FreeBuff owns the control room. Grok is the build engine. MiMo is a model running on the box.</p>
+
+    <h3 class="c-gold" style="margin-top:34px;">What shipped</h3>
+    <table class="cmp-table">
+      <thead><tr><th>Day</th><th>Shipped</th><th>Data point</th></tr></thead>
+      <tbody>
+        <tr><td>Wed 23</td><td><b>SupaBird</b> v1.0</td><td>10 modules, 11 routes, local Next.js 16</td></tr>
+        <tr><td>Wed 23</td><td>Fleet sync</td><td>28 targets hit</td></tr>
+        <tr><td>Thu 24</td><td>Motion With Receipts</td><td>fanned to 6 seats in 60 seconds</td></tr>
+        <tr><td>Fri 25</td><td>TheEcomDaddy curriculum</td><td>5 public tweets &rarr; <span class="c-gold">$79/mo</span> confirmed</td></tr>
+        <tr><td>Sat 26</td><td>Gmail restored</td><td>22,160 &rarr; <span class="c-cyan">26,290</span> messages syncing</td></tr>
+        <tr><td>Sat 26</td><td>4 apps booted</td><td>:3000 :8791 :8796 :8765 all HTTP 200</td></tr>
+        <tr><td>Sat 26</td><td>MSP integrity</td><td>bundled SHA == live SHA, <span class="c-green">drift: false</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="timeline">
+  <div class="wrap">
+    <div class="kicker">03 &mdash; Day by day</div>
+    <div class="rule green"></div>
+    <h2>THE TIMELINE</h2>
+    <ul class="tl">
+      <li><div class="when">Sunday 20 &middot; 20:09 CT</div><div class="what">Week opens with intelligence intake</div><div class="detail">RuujSs and QuantDinger land for triage. Instagram publishing blocked &mdash; HTTP 500 from the container.</div></li>
+      <li><div class="when">Monday 21 &middot; 20:05 CT</div><div class="what">TheEcomDaddy offer verified at $79/mo</div><div class="detail">Leo's ladder query confirms the price point. Both Grok and Hermes pick it up for the biz-dev lane.</div></li>
+      <li><div class="when">Tuesday 22 &middot; 01:29 CT</div><div class="what">Experiential Labs credentials page flagged</div><div class="detail">Built and shipped &mdash; with an explicit note that keys stay out of any public artifact.</div></li>
+      <li><div class="when">Wednesday 23 &middot; 18:15 CT</div><div class="what">SupaBird ships</div><div class="detail">grok-build delivers a Next.js 16 X growth tool. First launch throws a malformed <span class="c-orange">C:\c\Users\...</span> path &mdash; caught and fixed in five minutes. Fleet sync hits 28 targets.</div></li>
+      <li class="peak"><div class="when">Thursday 24 &middot; 18:35 CT</div><div class="what">Motion With Receipts fans out</div><div class="detail">One action, 6 seats, 60 seconds. Bus volume triples to 19 events &mdash; the first real spike of the week.</div></li>
+      <li class="peak"><div class="when">Friday 25 &middot; 14:55 CT</div><div class="what">Peak day &mdash; 35 events</div><div class="detail">A 10&times; jump in 24 hours. The curriculum extraction, the trading-desk evidence, and the bus traffic all compound here.</div></li>
+      <li><div class="when">Saturday 26 &middot; 01:00 CT</div><div class="what">Gmail restored, all four apps verified</div><div class="detail">Thunderbird comes back with 26,290 messages syncing. SupaBird, FunTokens, the Debate Desk and Connecture all boot and return HTTP 200. Every screenshot on this page was captured today.</div></li>
+    </ul>
+  </div>
+</section>
+
+<section id="gates">
+  <div class="wrap">
+    <div class="kicker">04 &mdash; The part most posts leave out</div>
+    <div class="rule orange"></div>
+    <h2>WHY NOTHING IS LIVE</h2>
+    <p class="subline">Both trading tools could be switched on with one config line. Doing that would be a mistake.</p>
+    <table class="cmp-table">
+      <thead><tr><th>System</th><th>Mode</th><th>Live state</th><th>Backtested picks</th></tr></thead>
+      <tbody>
+        <tr><td><b>FunTokens</b></td><td>WATCH-ONLY &middot; PAPER</td><td><span class="c-orange">off</span> &middot; no implementation</td><td><b class="c-orange">0</b> &mdash; stats read <i>insufficient data</i></td></tr>
+        <tr><td><b>Debate Desk</b></td><td>PAPER ONLY</td><td><span class="c-orange">live cap = 0</span></td><td>NVDA verdict Hold (1 run)</td></tr>
+        <tr><td><b>Connecture</b></td><td>Local services</td><td><span class="c-green">all healthy</span></td><td>n/a &mdash; not a trading system</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Anyone showing a 100% win rate on n=1 is selling you something. FunTokens' single closed Hot Take at 100% is a sample of one and the dashboard says so. Paper mode is not the boring part &mdash; it is where you find out if you are wrong while it is still cheap.</p>
+  </div>
+</section>
+
+<section id="shots">
+  <div class="wrap">
+    <div class="kicker">05 &mdash; Everything captured today</div>
+    <div class="rule gold"></div>
+    <h2>THE SCREENS</h2>
+
+    <h3 class="c-purple" style="margin-top:26px;">SupaBird</h3>
+    <div class="shot"><img src="img/01-supabird-landing.png" alt="SupaBird landing page" loading="lazy" /><div class="cap">Landing &mdash; pricing, features, login</div></div>
+    <div class="grid-2" style="margin-top:14px;">
+      <div class="shot"><img src="img/02-supabird-dashboard.png" alt="SupaBird dashboard" loading="lazy" /><div class="cap">Dashboard &mdash; goals and quick actions</div></div>
+      <div class="shot"><img src="img/03-supabird-content-machine.png" alt="SupaBird Content Machine" loading="lazy" /><div class="cap">Content Machine &mdash; learning preferences</div></div>
+    </div>
+
+    <h3 class="c-cyan" style="margin-top:34px;">FunTokens</h3>
+    <div class="grid-2">
+      <div class="shot"><img src="img/04-funtokens-desk.png" alt="FunTokens desk" loading="lazy" /><div class="cap">Desk &mdash; wallets, hot takes, top pick</div></div>
+      <div class="shot"><img src="img/12-funtokens-trades.png" alt="FunTokens transactions" loading="lazy" /><div class="cap">Wallet transactions &mdash; read-only, no signing</div></div>
+    </div>
+
+    <h3 class="c-gold" style="margin-top:34px;">The Debate Desk</h3>
+    <div class="grid-2">
+      <div class="shot"><img src="img/05-debate-desk.png" alt="Debate Desk launch" loading="lazy" /><div class="cap">Launch &mdash; 9 agents seated</div></div>
+      <div class="shot"><img src="img/11-debate-live.png" alt="Debate Desk live" loading="lazy" /><div class="cap">Live run</div></div>
+    </div>
+    <div class="shot" style="margin-top:14px;"><img src="img/06-debate-roundtable-replay.png" alt="Debate roundtable replay" loading="lazy" /><div class="cap">Roundtable replay &mdash; bull and bear arguing</div></div>
+    <div class="shot" style="margin-top:14px;"><img src="img/07-debate-fullpage.png" alt="NVDA debate verdict Hold" loading="lazy" /><div class="cap">Full page &mdash; NVDA verdict: HOLD</div></div>
+
+    <h3 class="c-green" style="margin-top:34px;">Connecture</h3>
+    <div class="grid-2">
+      <div class="shot"><img src="img/10-connecture-status.png" alt="Connecture status" loading="lazy" /><div class="cap">Status &mdash; bus, gate, front door, mail</div></div>
+      <div class="shot"><img src="img/10-connecture-connectors.png" alt="Connecture connectors" loading="lazy" /><div class="cap">Connectors &mdash; 13 of 21 live</div></div>
+    </div>
+    <div class="grid-2" style="margin-top:14px;">
+      <div class="shot"><img src="img/10-connecture-thunderbird.png" alt="Connecture Thunderbird tab" loading="lazy" /><div class="cap">Thunderbird &mdash; address books, batch send, dry run</div></div>
+      <div class="shot"><img src="img/10-connecture-bus.png" alt="Connecture agent bus" loading="lazy" /><div class="cap">Bus &mdash; 11 helpers on port 8787</div></div>
+    </div>
+
+    <h3 class="c-cyan" style="margin-top:34px;">Composites</h3>
+    <div class="grid-2">
+      <div class="shot"><img src="img/01-supabird-quarter.png" alt="SupaBird composite" loading="lazy" /><div class="cap">SupaBird quarter sheet</div></div>
+      <div class="shot"><img src="img/02-funtokens-quarter.png" alt="FunTokens composite" loading="lazy" /><div class="cap">FunTokens quarter sheet</div></div>
+      <div class="shot"><img src="img/03-debate-quarter.png" alt="Debate Desk composite" loading="lazy" /><div class="cap">Debate Desk quarter sheet</div></div>
+      <div class="shot"><img src="img/04-connecture-quarter.png" alt="Connecture composite" loading="lazy" /><div class="cap">Connecture quarter sheet</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Week 37 Review &middot; compiled 2026-09-26 &middot; window 2026-09-20 to 2026-09-26</p>
+    <p class="note">All screenshots captured 2026-09-26 between 02:00 and 02:45 CT from the live apps. Every version number, port, and count on this page was read from the running system on that date. No income, revenue, or "signals work" claims are made anywhere on this page. Trading systems are paper-only by design. Not financial advice.</p>
+  </div>
+</footer>
+
+</body>
+</html>
